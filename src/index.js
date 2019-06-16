@@ -4,13 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router, Route,Link } from 'react-router-dom';
-import Home from './components/home/home';
+import Visitors from './components/visitors/visitors';
 
 const routing = (
     <Router>
         <switch>
             <Route exact path="/" component={App}/>
-            <Route path="/home" component={Home}/>
+            <Route path="/visitor" component={Visitors}/>
         </switch>
     </Router>
 )

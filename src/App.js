@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import { createShortUrl } from './services/api.service';
+import { createShortUrl,saveVisitor } from './services/api.service';
 
 class App extends React.Component{
   constructor(props) {
@@ -10,11 +10,15 @@ class App extends React.Component{
     this.state = {
       value: '',
       showShortenUrl : false,
-      shortUrl : 'http://localhost/8abcd'
+      shortUrl : ''
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount(){
+      saveVisitor('saveVisitor');
   }
 
   handleChange(event) {
@@ -37,6 +41,10 @@ class App extends React.Component{
     event.preventDefault();
   }
 
+  loadVisitorPage(){
+    this.props.history.push('/visitor');
+  }
+
   render() {
     return (
       <div className="App App-header">
@@ -54,6 +62,8 @@ class App extends React.Component{
             </a>
           </div>
         }
+
+        <button onClick={(e)=> this.loadVisitorPage(e)}>Get Visitor</button>
       </div>
     );
   }

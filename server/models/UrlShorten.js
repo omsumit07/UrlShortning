@@ -8,4 +8,5 @@ const urlShortenSchema = new Schema({
     createdAt: { type: Date, default: Date.now },
 });
   
-  mongoose.model("UrlShorten", urlShortenSchema);
+module.exports = mongoose.model("UrlShorten", urlShortenSchema);
+
